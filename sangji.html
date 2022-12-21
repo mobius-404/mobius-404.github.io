@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/echarts.js"></script>
+    <script src="js/vintage.js"></script>
+</head>
+
+<body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 1000px;height:800px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+
+var myChart = echarts.init(document.getElementById('main'),'vintage');
+option = {
+  series: {
+    type: 'sankey',
+    layout: 'none',
+    emphasis: {
+      focus: 'adjacency'
+    },
+    data: [
+      {
+        name: '白羊'
+      },
+      {
+        name: '金牛'
+      },
+      {
+        name: '2002'
+      },
+      {
+        name: '1978'
+      },
+      {
+        name: 'b1'
+      },
+      {
+        name: '1990'
+      }
+    ],
+    links: [
+      {
+        source: '白羊',
+        target: '2002',
+        value: 5
+      },
+      {
+        source: '白羊',
+        target: '1978',
+        value: 3
+      },
+      {
+        source: '金牛',
+        target: 'b1',
+        value: 8
+      },
+      {
+        source: '白羊',
+        target: 'b1',
+        value: 3
+      },
+      {
+        source: 'b1',
+        target: '2002',
+        value: 1
+      },
+      {
+        source: 'b1',
+        target: 1990,
+        value: 2
+      }
+    ]
+  }
+};
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    
+    </script>
+  </body>
+</html>
